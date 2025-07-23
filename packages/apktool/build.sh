@@ -9,18 +9,6 @@ TERMUX_PKG_SHA256=d87a589778d4369362a99c83a67ca3d365891395aba1be1b85dbf04e72cd32
 TERMUX_PKG_DEPENDS="aapt, aapt2, openjdk-17"
 TERMUX_PKG_BUILD_IN_SRC=true
 
-termux_step_pre_configure() {
-	local prebuilt_dir="brut.apktool/apktool-lib/src/main/resources/prebuilt"
-	rm -rf $prebuilt_dir/{linux,macosx,windows}
-	mkdir -p $prebuilt_dir/linux
-	for exe_name in aapt aapt2; do
-		local exe_path=$prebuilt_dir/linux/${exe_name}
-		$CC $CFLAGS $CPPFLAGS aapt-wrapper/${exe_name}-wrapper.c \
-			-o ${exe_path} $LDFLAGS
-		cp -a ${exe_path} ${exe_path}_64
-	done
-}
-
 termux_step_make() {
 	sh gradlew build shadowJar -x test
 }

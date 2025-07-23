@@ -1,0 +1,27 @@
+diff --git a/brut.apktool/apktool-lib/src/main/java/brut/androlib/AaptInvoker.java b/brut.apktool/apktool-lib/src/main/java/brut/androlib/AaptInvoker.java
+index b9ba2213..6ccbbd9b 100644
+--- a/brut.apktool/apktool-lib/src/main/java/brut/androlib/AaptInvoker.java
++++ b/brut.apktool/apktool-lib/src/main/java/brut/androlib/AaptInvoker.java
+@@ -42,19 +42,9 @@ public class AaptInvoker {
+         String aaptPath;
+         boolean customAapt;
+ 
+-        if (mConfig.getAaptBinary() != null) {
+-            aaptPath = mConfig.getAaptBinary().getPath();
+-            customAapt = true;
+-        } else {
+-            try {
+-                aaptPath = AaptManager.getAaptBinary(mConfig.getAaptVersion()).getPath();
+-                customAapt = false;
+-            } catch (AndrolibException ex) {
+-                aaptPath = AaptManager.getAaptName(mConfig.getAaptVersion());
+-                customAapt = true;
+-                LOGGER.warning(aaptPath + ": " + ex.getMessage() + " (defaulting to $PATH binary)");
+-            }
+-        }
++        aaptPath = AaptManager.getAaptName(mConfig.getAaptVersion());
++        customAapt = true;
++        LOGGER.warning(aaptPath + ": defaulting to $PATH binary");
+ 
+         switch (mConfig.getAaptVersion()) {
+             case 2:
