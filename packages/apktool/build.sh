@@ -14,7 +14,8 @@ termux_step_make() {
 }
 
 termux_step_make_install() {
-	install -Dm600 brut.apktool/apktool-cli/build/libs/apktool-cli-all.jar \
+	ls brut.apktool/apktool-cli/build/libs/
+	install -Dm600 brut.apktool/apktool-cli/build/libs/apktool-cli.jar \
 		$TERMUX_PREFIX/share/java/apktool.jar
 	cat <<- EOF > $TERMUX_PREFIX/bin/apktool
 	#!${TERMUX_PREFIX}/bin/sh
