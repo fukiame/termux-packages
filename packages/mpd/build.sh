@@ -9,7 +9,6 @@ TERMUX_PKG_AUTO_UPDATE=true
 TERMUX_PKG_DEPENDS="libchromaprint, dbus, ffmpeg, game-music-emu, libao, libbz2, libc++, libcurl, libexpat, libflac, libicu, libid3tag, libmad, libmp3lame, libmodplug, libmpdclient, libnfs, libogg, libopenmpt, libopus, libsamplerate, libsndfile, libsoxr, libsqlite, libvorbis, libwavpack, libmpg123, openal-soft, pcre2, pulseaudio, yajl, zlib, fmt, alsa-lib"
 TERMUX_PKG_BUILD_DEPENDS="libiconv"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
--Dalsa=enabled
 -Depoll=false
 -Dsndio=disabled
 -Dzlib=enabled
